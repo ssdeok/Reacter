@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function PostList() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const [posts, setPosts] = useState([
+  const categories = [
     {
       id: 1,
       title: "Now Playing",
@@ -25,7 +25,8 @@ export default function PostList() {
       title: "Upcoming",
       content: "개봉 예정",
     },
-  ]);
+  ];
+
   return (
     <div>
       {/* <ul>
@@ -36,23 +37,29 @@ export default function PostList() {
           <Link to="/posts">게시글로</Link>
         </li>
       </ul> */}
-      <h2>posts</h2>
+      <h3>영화 카테고리</h3>
       <ul>
-        {posts.map((post) => {
+        {categories.map((post) => {
           const { id, title, content } = post;
           return (
             <li key={id}>
               <Link to={`/posts/${id}`} state={{ post }}>
                 <h3>{title}</h3>
               </Link>
-              <h3
+              <h4>{content}</h4>
+
+              {/* <Link to={`/posts/${id}`} state={{ post }}>
+                <h3>{title}</h3>
+              </Link> */}
+
+              {/* <h3
                 onClick={() => {
                   // 이동을 하고 싶다
                   navigate(`/posts/${id}`);
                 }}
               >
                 {title}
-              </h3>
+              </h3> */}
               {/* <p>{content}</p> */}
             </li>
           );

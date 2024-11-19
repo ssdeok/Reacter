@@ -1,16 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import PostList from "../pages/PostList";
-import Movie from "../pages/Movie";
-import RouteLayout from "../RouteLayout";
+import Hello from "../pages/Hello";
+import RootLayout from "../RootLayout";
 import PostDetail from "../pages/PostDetail";
 import NotFound from "../pages/NotFound";
-import MovieList from "../pages/MovieList";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RouteLayout />,
+    element: <RootLayout />,
     errorElement: <NotFound />,
     children: [
       {
@@ -25,12 +24,12 @@ const router = createBrowserRouter([
         path: "/posts/:postId",
         element: <PostDetail />,
       },
-      {
-        path: "/movies",
-        element: <MovieList />,
-      },
     ],
   },
+  // {
+  //   path: '/music',
+  //   element: <musiclayout></musiclayout>
+  // }
 ]);
 
 export default router;
