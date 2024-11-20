@@ -6,9 +6,22 @@ export default function PostDetail() {
   useEffect(() => {
     async function getNowPlay() {
       const nowPlaying = await movieApi.getNow();
-      console.log(nowPlaying)
+      console.log(nowPlaying);
     }
     getNowPlay();
+
+    // async function getPopular() {
+    //   const popularMovie = await movieApi.getPop();
+    //   console.log(popularMovie);
+    // }
+    // getPopular();
+
+    // async function getTopRated() {
+    //   const topRated = await movieApi.getTop();
+    //   console.log(topRated);
+    // }
+    // getTopRated();
   });
+
   return <div></div>;
 }

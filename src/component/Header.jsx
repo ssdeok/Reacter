@@ -12,9 +12,6 @@ export default function Header() {
         <li>
           <Link to="/posts">마이페이지</Link>
         </li>
-        <li>
-          <Link to="/movies">더보기</Link>
-        </li>
       </ul>
     </header>
   );

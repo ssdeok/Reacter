@@ -9,21 +9,25 @@ export default function PostList() {
       id: 1,
       title: "Now Playing",
       content: "현재상영중",
+      button: "더보기",
     },
     {
       id: 2,
       title: "Popular",
       content: "인기영화",
+      button: "더보기",
     },
     {
       id: 3,
       title: "Top Rated",
       content: "상위 영화",
+      button: "더보기",
     },
     {
       id: 4,
       title: "Upcoming",
       content: "개봉 예정",
+      button: "더보기",
     },
   ];
 
@@ -40,13 +44,16 @@ export default function PostList() {
       <h3>영화 카테고리</h3>
       <ul>
         {categories.map((post) => {
-          const { id, title, content } = post;
+          const { id, title, content, button } = post;
           return (
             <li key={id}>
               <Link to={`/posts/${id}`} state={{ post }}>
                 <h3>{title}</h3>
               </Link>
               <h4>{content}</h4>
+              <Link to={`/posts/${id}`} state={{ post }}>
+                {button}
+              </Link>
 
               {/* <Link to={`/posts/${id}`} state={{ post }}>
                 <h3>{title}</h3>
