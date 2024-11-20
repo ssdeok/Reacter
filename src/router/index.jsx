@@ -11,7 +11,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RouteLayout />,
-    errorElement: <NotFound />,
+    // errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <PostList />,
       },
       {
-        path: "/posts/:postId",
+        path: "/posts/:url",
         element: <PostDetail />,
       },
       {

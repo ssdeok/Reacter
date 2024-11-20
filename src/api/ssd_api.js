@@ -10,11 +10,19 @@ const movieApi = {
     return response.data;
   },
   getPop: async () => {
-    const response = await api.get("popular");
+    const response = await api.get("popular", {
+      params: {
+        api_key: import.meta.env.VITE_API_KEY,
+      },
+    });
     return response.data;
   },
   getTop: async () => {
-    const response = await api.get("top_rated");
+    const response = await api.get("top_rated", {
+      params: {
+        api_key: import.meta.env.VITE_API_KEY,
+      },
+    });
     return response.data;
   },
 };

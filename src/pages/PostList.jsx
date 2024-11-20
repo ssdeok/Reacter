@@ -1,33 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import movieApi from "../api/ssd_api";
+import { useParams } from "react-router-dom";
 
 export default function PostList() {
   // const navigate = useNavigate();
+  const [movies, setMovies] = useState({
+    nowPlaying: [],
+    popular: [],
+    topRated: [],
+  });
+  console.log(movies);
+
+  useEffect(() => {
+    async function fetchMovies() {
+      const nowPlaying = await movieApi.getNow();
+      const popular = await movieApi.getPop();
+      const topRated = await movieApi.getTop();
+
+      setMovies({
+        nowPlaying: nowPlaying.results,
+        popular: popular.results,
+        topRated: topRated.results,
+      });
+    }
+    fetchMovies();
+  }, []);
 
   const categories = [
     {
       id: 1,
+      url: "now_playing",
       title: "Now Playing",
       content: "현재상영중",
-      button: "더보기",
     },
     {
       id: 2,
+      url: "popular",
       title: "Popular",
       content: "인기영화",
-      button: "더보기",
     },
     {
       id: 3,
+      url: "top_rated",
       title: "Top Rated",
       content: "상위 영화",
-      button: "더보기",
-    },
-    {
-      id: 4,
-      title: "Upcoming",
-      content: "개봉 예정",
-      button: "더보기",
     },
   ];
 
@@ -42,35 +59,28 @@ export default function PostList() {
         </li>
       </ul> */}
       <h3>영화 카테고리</h3>
+      <h3>Now Playing</h3>
+      <Link to="/posts/now_playing">더보기</Link>
       <ul>
-        {categories.map((post) => {
-          const { id, title, content, button } = post;
-          return (
-            <li key={id}>
-              <Link to={`/posts/${id}`} state={{ post }}>
-                <h3>{title}</h3>
-              </Link>
-              <h4>{content}</h4>
-              <Link to={`/posts/${id}`} state={{ post }}>
-                {button}
-              </Link>
+        {movies.nowPlaying.map((movie) => (
+          <li key={movie.id}>{movie.title}</li>
+        ))}
+      </ul>
 
-              {/* <Link to={`/posts/${id}`} state={{ post }}>
-                <h3>{title}</h3>
-              </Link> */}
+      <h3>Popular Movies</h3>
+      <Link to="/posts/popular">더보기</Link>
+      <ul>
+        {movies.popular.map((movie) => (
+          <li key={movie.id}>{movie.title}</li>
+        ))}
+      </ul>
 
-              {/* <h3
-                onClick={() => {
-                  // 이동을 하고 싶다
-                  navigate(`/posts/${id}`);
-                }}
-              >
-                {title}
-              </h3> */}
-              {/* <p>{content}</p> */}
-            </li>
-          );
-        })}
+      <h3>Top Rated Movies</h3>
+      <Link to="/posts/top_rated">더보기</Link>
+      <ul>
+        {movies.topRated.map((movie) => (
+          <li key={movie.id}>{movie.title}</li>
+        ))}
       </ul>
     </div>
   );
