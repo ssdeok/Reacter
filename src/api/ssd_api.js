@@ -25,6 +25,22 @@ const movieApi = {
     });
     return response.data;
   },
+  getDetail: async (movie_id) => {
+    const response = await api.get(movie_id, {
+      params: {
+        api_key: import.meta.env.VITE_API_KEY,
+      },
+    });
+    return response.data;
+  },
+  // getDetail: async (movie_id) => {
+  //   const response = await api.get(movie_id, {
+  //     params: {
+  //       api_key: import.meta.env.VITE_API_KEY,
+  //     },
+  //   });
+  //   return response.data;
+  // },
 };
 
 export default movieApi;

@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <PostDetail />,
       },
       {
-        path: "/movies",
+        path: "/movies/:id",
         element: <MovieList />,
       },
     ],

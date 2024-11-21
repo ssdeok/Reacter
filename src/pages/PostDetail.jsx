@@ -49,7 +49,7 @@ export default function PostDetail() {
         return (
           // 부모태그가 2개기때문에 감싸줘야함
           <div key={id}>
-            <Link to="/movies">
+            <Link to={`/movies/${id}`}>
               <p>{title}</p>
             </Link>
 
@@ -60,3 +60,6 @@ export default function PostDetail() {
     </div>
   );
 }
+
+// 현재는 클릭을 하면 그 영화의 id가 나옴
+// 그것을 리뷰를 비롯한 전체정보가 나오게 바꾼다
