@@ -8,14 +8,13 @@ export default function MovieList() {
 
   useEffect(() => {
     async function fetchData() {
-      const detail = await movieApi.getDetail(id);
-      console.log(detail);
-      // 응답데이터를 스테이트에 저장
-      // 응답데이터=detail
-      // 렌더링 스테이트 = movies
-      setMovies(detail);
+      const deTail = await movieApi.getDetail(id);
+      setMovies(deTail);
     }
     fetchData();
+    // 응답데이터를 스테이트에 저장
+    // 응답데이터=detail
+    // 렌더링 스테이트 = movies
   }, []);
 
   return (
@@ -36,7 +35,6 @@ export default function MovieList() {
 // 그 클릭한 영화에 대한 정보가 나오게된다.
 // 포스트디테일에서 더보기릘 클릭하면
 // 무비리스트를 출력하게 된다.
-// 지금은
 
 // 1. api요청을 함수로 만든다. getDetail
 // 2. useEffect에서 api요청 함수를 실행
