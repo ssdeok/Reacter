@@ -25,6 +25,7 @@ const movieApi = {
     });
     return response.data;
   },
+  // 1. api요청을 함수로 만든다. getDetail
   getDetail: async (movie_id) => {
     const response = await api.get(movie_id, {
       params: {

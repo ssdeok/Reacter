@@ -7,8 +7,10 @@ export default function MovieList() {
   const [movies, setMovies] = useState({});
 
   useEffect(() => {
+    // 2. useEffect에서 api요청 함수를 실행
     async function fetchData() {
       const deTail = await movieApi.getDetail(id);
+      // 3. 응답데이터를 스테이트에 저장해야한다.
       setMovies(deTail);
     }
     fetchData();
