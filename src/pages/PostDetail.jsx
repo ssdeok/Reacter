@@ -52,8 +52,12 @@ export default function PostDetail() {
             <Link to={`/movies/${id}`}>
               <p>{title}</p>
             </Link>
-
-            <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
+            <div>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                alt=""
+              />
+            </div>
           </div>
         );
       })}

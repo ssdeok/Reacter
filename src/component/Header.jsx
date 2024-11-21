@@ -10,7 +10,7 @@ export default function Header() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/posts">마이페이지</Link>
+          <Link to="/posts">메인페이지</Link>
         </li>
       </ul>
     </header>
