@@ -18,11 +18,18 @@ export default function MovieList() {
   }, []);
 
   return (
-    <div>
+    <div key={id}>
       <h3>상세페이지</h3>
       {/* 스테이트를 화면에 렌더링 */}
       {/* 스테이트=movies */}
-      <p>{movies.title}</p>
+
+      <p>{movies.original_title}</p>
+      <p>{movies.overview}</p>
+      <p>{movies.release_date}</p>
+      <img
+        src={`https://image.tmdb.org/t/p/w500${movies.backdrop_path}`}
+        alt=""
+      />
     </div>
   );
 }
