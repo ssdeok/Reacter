@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import movieApi from "../api/ssd_api";
+import MovieList from "./MovieList";
 
 export default function PostDetail() {
   const { url } = useParams();
@@ -48,7 +49,9 @@ export default function PostDetail() {
         return (
           // 부모태그가 2개기때문에 감싸줘야함
           <div key={id}>
-            <p>{title}</p>
+            <Link to="/movies">
+              <p>{title}</p>
+            </Link>
 
             <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
           </div>
