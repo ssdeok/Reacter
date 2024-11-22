@@ -13,6 +13,9 @@ export default function Header() {
           <Link to="/posts">메인페이지</Link>
         </li> */}
       </ul>
+      <div>
+        <button>로그인</button>
+      </div>
     </header>
   );
 }
