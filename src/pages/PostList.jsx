@@ -63,7 +63,13 @@ export default function PostList() {
       <Link to="/posts/now_playing">더보기</Link>
       <ul>
         {movies.nowPlaying.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
+          <li key={movie.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt=""
+            />
+            {movie.title}
+          </li>
         ))}
       </ul>
 
