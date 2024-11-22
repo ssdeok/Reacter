@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import movieApi from "../api/ssd_api";
-import MovieList from "./MovieList";
+import MovieList from "./MovieDetail";
 
 export default function PostDetail() {
   const { url } = useParams();

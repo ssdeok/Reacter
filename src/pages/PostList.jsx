@@ -27,26 +27,26 @@ export default function PostList() {
     fetchMovies();
   }, []);
 
-  const categories = [
-    {
-      id: 1,
-      url: "now_playing",
-      title: "Now Playing",
-      content: "현재상영중",
-    },
-    {
-      id: 2,
-      url: "popular",
-      title: "Popular",
-      content: "인기영화",
-    },
-    {
-      id: 3,
-      url: "top_rated",
-      title: "Top Rated",
-      content: "상위 영화",
-    },
-  ];
+  // const categories = [
+  //   {
+  //     id: 1,
+  //     url: "now_playing",
+  //     title: "Now Playing",
+  //     content: "현재상영중",
+  //   },
+  //   {
+  //     id: 2,
+  //     url: "popular",
+  //     title: "Popular",
+  //     content: "인기영화",
+  //   },
+  //   {
+  //     id: 3,
+  //     url: "top_rated",
+  //     title: "Top Rated",
+  //     content: "상위 영화",
+  //   },
+  // ];
 
   return (
     <div>
@@ -77,7 +77,13 @@ export default function PostList() {
       <Link to="/posts/popular">더보기</Link>
       <ul>
         {movies.popular.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
+          <li key={movie.id}>
+            {movie.title}
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt=""
+            />
+          </li>
         ))}
       </ul>
 
@@ -85,7 +91,13 @@ export default function PostList() {
       <Link to="/posts/top_rated">더보기</Link>
       <ul>
         {movies.topRated.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
+          <li key={movie.id}>
+            {movie.title}
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt=""
+            />
+          </li>
         ))}
       </ul>
     </div>

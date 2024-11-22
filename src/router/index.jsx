@@ -5,7 +5,7 @@ import Movie from "../pages/Movie";
 import RouteLayout from "../RouteLayout";
 import PostDetail from "../pages/PostDetail";
 import NotFound from "../pages/NotFound";
-import MovieList from "../pages/MovieList";
+import MovieList from "../pages/MovieDetail";
 
 const router = createBrowserRouter([
   {

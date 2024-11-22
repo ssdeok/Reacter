@@ -9,9 +9,9 @@ export default function Header() {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/posts">메인페이지</Link>
-        </li>
+        </li> */}
       </ul>
     </header>
   );
