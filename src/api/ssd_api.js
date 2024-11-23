@@ -34,6 +34,7 @@ const movieApi = {
     });
     return response.data;
   },
+
   // getDetail: async (movie_id) => {
   //   const response = await api.get(movie_id, {
   //     params: {

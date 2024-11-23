@@ -10,6 +10,16 @@ export default function Home() {
     topRated: [],
   });
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      const results = await movieApi.getSearchResults(searchTerm);
+      setSearchResults(results.results);
+    }
+  };
   useEffect(() => {
     async function fetchMovied() {
       const nowPlaying = await movieApi.getNow();
@@ -27,6 +37,33 @@ export default function Home() {
 
   return (
     <div className="movie-container">
+      <form id="search-form-view" onSubmit={handleSearch}>
+        <input
+          type="text"
+          placeholder="검색어를 입력하세요"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button type="submit">검색</button>
+      </form>
+
+      {searchResults.length > 0 ? (
+        <div>
+          <h3>Search Results</h3>
+          <ul>
+            {searchResults.map((movie) => (
+              <li>
+                {movie.title}
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt="{movie.title}"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
       {/* <span>아이디</span>
       <input type="text" />
       <span>비밀번호</span>
@@ -46,7 +83,6 @@ export default function Home() {
           </ul>
         ))}
       </div>
-
       <div className="section">
         <h3>Popular Movies</h3>
         <Link to="/posts/popular">더보기</Link>
@@ -63,7 +99,6 @@ export default function Home() {
           </ul>
         ))}
       </div>
-
       <div className="section">
         <h3>Top Rated Movies</h3>
         <Link to="/posts/top_rated">더보기</Link>
