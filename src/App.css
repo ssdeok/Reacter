@@ -43,4 +43,30 @@
 
 .movie-container {
   display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+}
+
+.section {
+  display: flex;
+}
+
+.section .movie-list {
+  display: flex;
+}
+
+.movie-list img {
+  width: 200px;
+}
+
+.text-align {
+  text-align: left;
+}
+
+.movie-align {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie-align img {
+  width: 200px;
 }

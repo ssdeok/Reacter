@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import movieApi from "../api/ssd_api";
-import MovieList from "./MovieDetail";
+import "../App.css";
 
-export default function PostDetail() {
+export default function MovieList() {
   const { url } = useParams();
 
   // setMovie로 렌더링해주면
@@ -43,22 +43,22 @@ export default function PostDetail() {
   }, []);
 
   return (
-    <div>
+    <div className="movie-align">
       {moviearray.map((movie) => {
         const { title, id, poster_path } = movie;
         return (
           // 부모태그가 2개기때문에 감싸줘야함
-          <div key={id}>
-            <Link to={`/movies/${id}`}>
-              <p>{title}</p>
-            </Link>
-            <div>
+          <ul>
+            <li key={id}>
+              <Link to={`/movies/${id}`}>
+                <p>{title}</p>
+              </Link>
               <img
                 src={`https://image.tmdb.org/t/p/w500${poster_path}`}
                 alt=""
               />
-            </div>
-          </div>
+            </li>
+          </ul>
         );
       })}
     </div>

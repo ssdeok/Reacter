@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import movieApi from "../api/ssd_api";
 
-export default function MovieList() {
+export default function MovieDetail() {
   const { id } = useParams();
   const [movies, setMovies] = useState({});
 
@@ -26,7 +26,6 @@ export default function MovieList() {
       {/* 스테이트=movies */}
 
       <p>{movies.original_title}</p>
-      <p>{movies.overview}</p>
       <p>{movies.release_date}</p>
       <img
         src={`https://image.tmdb.org/t/p/w500${movies.backdrop_path}`}

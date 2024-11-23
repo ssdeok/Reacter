@@ -3,9 +3,10 @@ import Home from "../pages/Home";
 import PostList from "../pages/PostList";
 import Movie from "../pages/Movie";
 import RouteLayout from "../RouteLayout";
-import PostDetail from "../pages/PostDetail";
+import PostDetail from "../pages/MovieList";
 import NotFound from "../pages/NotFound";
 import MovieList from "../pages/MovieDetail";
+import MovieDetail from "../pages/MovieDetail";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/movies/:id",
-        element: <MovieList />,
+        element: <MovieDetail />,
       },
     ],
   },

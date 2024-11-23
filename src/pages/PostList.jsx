@@ -49,7 +49,7 @@ export default function PostList() {
   // ];
 
   return (
-    <div>
+    <div className="movie-container">
       {/* <ul>
         <li>
           <Link to="/">Home으로</Link>
@@ -58,48 +58,54 @@ export default function PostList() {
           <Link to="/posts">게시글로</Link>
         </li>
       </ul> */}
-      <h3>영화 카테고리</h3>
-      <h3>Now Playing</h3>
-      <Link to="/posts/now_playing">더보기</Link>
-      <ul>
-        {movies.nowPlaying.map((movie) => (
-          <li key={movie.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt=""
-            />
-            {movie.title}
-          </li>
-        ))}
-      </ul>
+      <div className="section">
+        <h3>영화 카테고리</h3>
+        <h3>Now Playing</h3>
+        <Link to="/posts/now_playing">더보기</Link>
+        <ul className="movie-list">
+          {movies.nowPlaying.map((movie) => (
+            <li key={movie.id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt=""
+              />
+              {movie.title}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-      <h3>Popular Movies</h3>
-      <Link to="/posts/popular">더보기</Link>
-      <ul>
-        {movies.popular.map((movie) => (
-          <li key={movie.id}>
-            {movie.title}
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt=""
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="section">
+        <h3>Popular Movies</h3>
+        <Link to="/posts/popular">더보기</Link>
+        <ul className="movie-list">
+          {movies.popular.map((movie) => (
+            <li key={movie.id}>
+              {movie.title}
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt=""
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
 
-      <h3>Top Rated Movies</h3>
-      <Link to="/posts/top_rated">더보기</Link>
-      <ul>
-        {movies.topRated.map((movie) => (
-          <li key={movie.id}>
-            {movie.title}
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt=""
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="section">
+        <h3>Top Rated Movies</h3>
+        <Link to="/posts/top_rated">더보기</Link>
+        <ul className="movie-list">
+          {movies.topRated.map((movie) => (
+            <li key={movie.id}>
+              {movie.title}
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt=""
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
